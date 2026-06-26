@@ -284,18 +284,20 @@ export function ProjectList({
           編集
         </MenuItem>
 
-        <MenuItem
-          className="project-list-menu-item"
-          onClick={() => {
-            if (menuProject) {
-              onDeleteProject(menuProject.id);
-            }
+        {!menuProject?.completed && (
+          <MenuItem
+            className="project-list-menu-item"
+            onClick={() => {
+              if (menuProject) {
+                onDeleteProject(menuProject.id);
+              }
 
-            onMenuAnchorChange(null);
-          }}
-        >
-          削除
-        </MenuItem>
+              onMenuAnchorChange(null);
+            }}
+          >
+            削除
+          </MenuItem>
+        )}
       </Menu>
     </Box>
   );
